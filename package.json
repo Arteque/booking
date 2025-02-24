@@ -1,0 +1,23 @@
+{
+  "name": "booking",
+  "version": "1.0.0",
+  "description": "Booking Element for Hero Section",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arteque/booking.git"
+  },
+  "keywords": [
+    "Booking",
+    "Reservierung"
+  ],
+  "author": "Ahmed Lemssiah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Arteque/booking/issues"
+  },
+  "homepage": "https://github.com/Arteque/booking#readme"
+}
