@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="booking.css">
-    <title>Document</title>
+    <title>Booking</title>
 </head>
 <body>
     
@@ -23,26 +23,59 @@
                     </p>
                 </div>  
                 <div class="booking__main">
-                    <div class="booking__location">
-                        <i class="fa-solid fa-house booking__icon"></i>
-                        <div class="booking__content">
-                            <div class="booking__info location__info">
-                                1.OG
+                    <div class="booking__item booking__location">
+                        <div class="booking__toggle-menu" onclick="this.nextElementSibling.classList.toggle('hide')">
+                            <i class="fa-solid fa-house booking__icon"></i>
+                            <div class="booking__content">
+                                
+                                <div class="booking__titlecat">
+                                    Wohnungauswahl
+                                </div>
+                                <div class="booking__info location__info hide"> 
+                                         1.OG
+                                 </div>
                             </div>
-                            <div class="booking__titlecat">
-                                Wohnungauswahl
+                            <i class="fas fa-caret-down booking__icon booking__caret"></i>
+                        </div>
+                        <div class="booking__submenu">
+                            <button onclick="this.parentElement.classList.add('hide')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <ul class="booking__submenu--content location__list">
+                                <li class="booking__submenu--entry">
+                                   <i class="fa-solid fa-bars-staggered"></i>
+                                   <span class="text">1.OG</span>
+                                </li>
+                                <li class="booking__submenu--entry">
+                                    <i class="fa-solid fa-bars-staggered"></i>
+                                    <span class="text">2.OG</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="booking__item booking__inout">
+                        <div class="booking__toggle-menu" onclick="this.nextElementSibling.classList.toggle('hide')">
+                            <i class="fa-solid fa-house booking__icon"></i>
+                            <div class="booking__content">
+                                
+                                <div class="booking__titlecat">
+                                    Wohnungauswahl
+                                </div>
+                                <div class="booking__info location__info hide"> 
+                                         1.OG
+                                 </div>
+                            </div>
+                            <i class="fas fa-caret-down booking__icon booking__caret"></i>
+                        </div>
+                        <div class="booking__submenu">
+                            <button onclick="this.parentElement.classList.add('hide')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="booking__submenu--content location__list">
+                                
                             </div>
                         </div>
-                        <ul class="location__list hide">
-                            <li>
-                                1.OG
-                            </li>
-                            <li>
-                                2.OG
-                            </li>
-                        </ul>
                     </div>
-                    <div class="booking__inout"></div>
                     <div class="booking__users"></div>
                     <div class="booking__sent"></div>
                 </div>    
