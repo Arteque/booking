@@ -54,6 +54,9 @@ ul[class] {
   font-weight: 900;
   position: relative;
 }
+.booking__main .booking__item {
+  position: relative;
+}
 .booking__main .booking__toggle-menu {
   border: 1px solid whitesmoke;
   display: -webkit-box;

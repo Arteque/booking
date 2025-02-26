@@ -48,6 +48,9 @@ ul[class]{
     font-family: var(--serif);
     font-weight: 900;
     position:relative;
+    .booking__item{
+        position:relative;
+    }
    .booking__toggle-menu{
         border: 1px solid whitesmoke;
         display:flex;
