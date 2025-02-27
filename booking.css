@@ -131,4 +131,17 @@ color:var(--sub-100) .booking__main .booking__toggle-menu .booking__info.hide {
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
   pointer-events: none;
+}
+
+.fc-daygrid-day-events {
+  display: none;
+}
+
+.fc-daygrid-day-top {
+  font-size: 0.8rem;
+  color: var(--prime-100);
+}
+
+.fc-toolbar-chunk .fc-toolbar-title {
+  font-size: 1rem;
 }/*# sourceMappingURL=booking.css.map */

@@ -114,3 +114,13 @@ ul[class]{
         }
     }
 }
+ .fc-daygrid-day-events {
+     display: none;
+}
+.fc-daygrid-day-top {
+    font-size: .8rem;
+    color: var(--prime-100);
+}
+.fc-toolbar-chunk .fc-toolbar-title {
+    font-size: 1rem;
+}
