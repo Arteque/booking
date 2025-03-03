@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", (e) => {
         locale: "de-DE",
         eventDisplay:"background",
         eventColor:"var(--warn-100)",
+        validRange:{
+            start:new Date()
+        },
         headerToolbar:{
             left:"title",
             center:"",
@@ -15,8 +18,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
         },
         events: allEvents,
         eventClick:function(info){
-            console.log(info.event.title)
+            info.jsEvent.preventDefault()
+        },
+        dateClick:function(info){
+            calClickDate(info)
         }
+
     })
     calendar.render()
 })
@@ -36,3 +43,7 @@ const allEvents = [
         end:"2025-02-28",
     }
 ]
+
+const calClickDate = (info) => {
+    console.log(info)
+}
