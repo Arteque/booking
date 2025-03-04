@@ -37,7 +37,7 @@
                             </div>
                             <i class="fas fa-caret-down booking__icon booking__caret"></i>
                         </div>
-                        <div class="booking__submenu">
+                        <div class="booking__submenu hide">
                             <button onclick="this.parentElement.classList.add('hide')">
                                 <i class="fas fa-times"></i>
                             </button>
@@ -62,12 +62,12 @@
                                     An- / Abreise
                                 </div>
                                 <div class="booking__info location__info hide"> 
-                                         02.03.2025
+                                       <span class="booking__start"></span> | <span class="booking__end"></span>
                                  </div>
                             </div>
                             <i class="fas fa-caret-down booking__icon booking__caret"></i>
                         </div>
-                        <div class="booking__submenu">
+                        <div class="booking__submenu hide">
                             <button onclick="this.parentElement.classList.add('hide')">
                                 <i class="fas fa-times"></i>
                             </button>
@@ -78,7 +78,47 @@
                             </div>
                         </div>
                     </div>
-                    <div class="booking__users"></div>
+                    <div class="booking__users">
+                        <div class="booking__toggle-menu" onclick="this.nextElementSibling.classList.toggle('hide')">
+                            <i class="fa-solid fa-calendar-days booking__icon"></i>
+                            <div class="booking__content">
+                                
+                                <div class="booking__titlecat">
+                                    Gäster
+                                </div>
+                                <div class="booking__info location__info hide"> 
+                                        Erwachsner: <span class="booking__adult"></span> Kinder: <span class="booking__kids"></span>
+                                </div>
+                            </div>
+                            <i class="fas fa-caret-down booking__icon booking__caret"></i>
+                        </div>
+                        <div class="booking__submenu hide">
+                            <button onclick="this.parentElement.classList.add('hide')">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="booking__submenu--content users__list">
+                                <div class="booking__submenu--entry">
+                                    <div class="user__data">
+                                        <i class="fa-solid fa-user"></i>
+                                        <span>Erwachsener</span>
+                                        <input type="range" name="" id=""  min="0" max="4">
+                                        <span class="range__val"></span>
+                                    </div>
+                                    <div class="user__data">
+                                        <i class="fa-solid fa-child"></i>
+                                        <span>Kinder</span>
+                                        <input type="range" name="" id=""  min="0" max="4">
+                                        <span class="range__val"></span>
+                                    </div>
+                                    <div class="user__data">
+                                        <i class="fa-solid fa-bed"></i>
+                                        <span>Kinderbett?</span>
+                                        <input type="checkbox" name="kinderbett" id="kinderbett">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="booking__sent"></div>
                 </div>    
             </div>

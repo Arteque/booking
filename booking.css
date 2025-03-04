@@ -126,11 +126,26 @@ color:var(--sub-100) .booking__main .booking__toggle-menu .booking__info.hide {
   border-block: 1px solid var(--light-100);
   cursor: pointer;
 }
-.booking__main .booking__submenu.hide {
+
+.booking .hide {
   opacity: 0;
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
   pointer-events: none;
+}
+
+.booking .user__data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
 .fc-daygrid-day-events {

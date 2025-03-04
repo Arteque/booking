@@ -107,11 +107,20 @@ ul[class]{
             cursor:pointer;
 
         }
-        &.hide{
-            opacity: 0;
-            transform: translateY(10px);
-            pointer-events: none;
-        }
+    }
+}
+.booking .hide{
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+}
+.booking{
+    .user__data {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
     }
 }
  .fc-daygrid-day-events {
