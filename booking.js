@@ -1,3 +1,5 @@
+const openedCard = []
+
 function checkItemExists (item) {
     if(!item) return
 }
@@ -9,10 +11,15 @@ function showClickedDatainTheInfoBox(){
     
     const bookingItemEntry = document.querySelectorAll(".booking__submenu--entry")
 
-    bookingItemEntry.forEach(item => {
+    bookingItemEntry.forEach((item, index) => {
 
         const bookingEntryInfo = item.parentElement.parentElement.parentElement.querySelector(".booking__content .booking__info")
-
+        openedCard.push(index)
+        if(openedCard.length > 1) {
+            bookingItemEntry[openedCard[1]].classList.add("hide")
+            openedCard.pop()
+            console.log(openedCard)
+        }
         item.addEventListener("click", (e) => {
             e.preventDefault()
             bookingEntryInfo.innerText = item.querySelector(".text").innerText

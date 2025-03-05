@@ -112,9 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
             bookinginOutDate = [];
             step = 0; // Reset step count
 
-            // ✅ Display formatted dates
-            bookingInfoStart.innerText ="Anreise:" + formatDate(newEvent.start);
-            bookingInfoEnd.innerText = "Abreise:" + formatDate(newEvent.end);
+            // ✅ Display formatted dates 
+            bookingInfoStart.innerHTML =`Anreise: <span style="color:orangered">${formatDate(newEvent.start)}</span>`;
+            bookingInfoEnd.innerHTML = `Anreise: <span style="color:orangered">${formatDate(newEvent.end)}</span>`;
             bookingInfoStart.parentElement.classList.remove("hide")
             bookingCalenderPopup.classList.add("hide")
         }

@@ -56,6 +56,8 @@ ul[class] {
 }
 .booking__main .booking__item {
   position: relative;
+  max-width: 500px;
+  margin-inline: auto;
 }
 .booking__main .booking__toggle-menu {
   border: 1px solid whitesmoke;
@@ -72,12 +74,12 @@ ul[class] {
           box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.062745098);
   padding: 0.5rem;
   cursor: pointer;
-  max-width: 400px;
 }
 .booking__main .booking__toggle-menu .booking__info {
   font-size: 0.7rem;
+  color: var(--warn-200);
 }
-color:var(--sub-100) .booking__main .booking__toggle-menu .booking__info.hide {
+.booking__main .booking__toggle-menu .booking__info.hide {
   opacity: 0;
   pointer-events: none;
 }
@@ -94,7 +96,7 @@ color:var(--sub-100) .booking__main .booking__toggle-menu .booking__info.hide {
   z-index: 200;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  top: 70%;
+  top: 100%;
   left: 1rem;
   right: 1rem;
   background: whitesmoke;
@@ -133,26 +135,21 @@ color:var(--sub-100) .booking__main .booking__toggle-menu .booking__info.hide {
   -webkit-transform: translateY(10px);
           transform: translateY(10px);
   pointer-events: none;
+  z-index: -100;
 }
 
-.booking .user__data {
+.user__data--content input:not(input[type=checkbox]) {
+  display: block;
+}
+
+.user__data {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
-}
-
-.user__data--icon {
-  width: 1rem;
-  height: 1rem;
-  display: block;
 }
 
 .fc-daygrid-day-events {

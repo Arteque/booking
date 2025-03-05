@@ -52,6 +52,8 @@ ul[class]{
     position:relative;
     .booking__item{
         position:relative;
+        max-width: 500px;
+        margin-inline: auto;
     }
    .booking__toggle-menu{
         border: 1px solid whitesmoke;
@@ -63,10 +65,10 @@ ul[class]{
         box-shadow:1px 1px 20px #00000010;
         padding: .5rem;
         cursor:pointer;
-        max-width: 400px;
+       
         .booking__info{
             font-size: .7rem; 
-            color:var(--sub-100)
+            color:var(--warn-200);
             &.hide{
                 opacity: 0;
                 pointer-events: none;
@@ -84,7 +86,7 @@ ul[class]{
     position:absolute;
     z-index: 200;
     transition: all 0.3s;
-    top: 70%;
+    top: 100%;
     left: 1rem;
     right: 1rem;
     background:whitesmoke;
@@ -117,24 +119,20 @@ ul[class]{
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
+    z-index: -100;
 }
 
-.booking{
-    .user__data {
-        display: flex;
-        gap: 1rem;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
+
+.user__data--content input:not(input[type="checkbox"]) {
+    display: block;
 }
 
-.user__data--icon{
-    width: 1rem;
-    height: 1rem;
-    display:block;
+.user__data {
+    display: flex
+;
+    gap: 1rem;
+    align-items: center;
 }
-
  .fc-daygrid-day-events {
      display: none;
 }
