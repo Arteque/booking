@@ -1,6 +1,15 @@
 const allEvents = []; // Store only one booking event
 
-
+const bookedDays  = [
+    {
+        id: new Date().getTime(),
+        title: "",
+        start: "2025-03-10",
+        end: "2025-03-20",
+        display: "background",
+        backgroundColor: "red",
+    }
+]
 
 document.addEventListener("DOMContentLoaded", () => {
     let calendarAn = document.querySelector("#calender-an");
@@ -11,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const bookingInfoStart = document.querySelector(".booking__start");
     const bookingInfoEnd = document.querySelector(".booking__end");
     const bookingCalenderPopup = document.querySelector(".booking__inout .booking__submenu")
+
+   
 
     const calendar = new FullCalendar.Calendar(calendarAn, {
         initialView: "dayGridMonth",
@@ -28,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             calClickDate(info);
         }
     });
-
+    
     calendar.render();
 
     const formatDate = (dateStr) => {
@@ -55,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             display: "background",
             backgroundColor: "green",
         });
-
+        
         if (bookinginOutDate.length === 2) {
             // Sort dates to ensure correct order
             let [startDate, endDate] = bookinginOutDate.sort((a, b) => new Date(a) - new Date(b));
@@ -94,8 +105,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             allEvents.push(newEvent);
+            allEvents.push(bookedDays)
             calendar.addEvent(newEvent); // Add event to FullCalendar
-
+            calendar.addEvent(bookedDays)
             // ✅ RESET bookinginOutDate AFTER booking is created
             bookinginOutDate = [];
             step = 0; // Reset step count

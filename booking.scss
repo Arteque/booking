@@ -41,9 +41,11 @@
 html, body{
     font-family: var(--fliess);
 }
+
 ul[class]{
     list-style:none;
 }
+
 .booking__main{
     font-family: var(--serif);
     font-weight: 900;
@@ -61,13 +63,14 @@ ul[class]{
         box-shadow:1px 1px 20px #00000010;
         padding: .5rem;
         cursor:pointer;
+        max-width: 400px;
         .booking__info{
             font-size: .7rem; 
             color:var(--sub-100)
-           &.hide{
-            opacity: 0;
-            pointer-events: none;
-        }
+            &.hide{
+                opacity: 0;
+                pointer-events: none;
+            }
         }
         .booking__icon{
             color:var(--prime-300);
@@ -109,11 +112,13 @@ ul[class]{
         }
     }
 }
+
 .booking .hide{
     opacity: 0;
     transform: translateY(10px);
     pointer-events: none;
 }
+
 .booking{
     .user__data {
         display: flex;
@@ -123,6 +128,13 @@ ul[class]{
         width: 100%;
     }
 }
+
+.user__data--icon{
+    width: 1rem;
+    height: 1rem;
+    display:block;
+}
+
  .fc-daygrid-day-events {
      display: none;
 }
