@@ -121,7 +121,7 @@
                                             <span>
                                                 <label for="kinderbett">Kinderbett?</label>
                                             </span>
-                                            <input type="checkbox" name="kinderbett" id="kinderbett" checked>
+                                            <input type="checkbox" name="kinderbett" id="kinderbett">
                                         </div>
                                     </div>
                                 </div>
@@ -135,33 +135,6 @@
     </section>
 
     <script src="calenderjs.min.js"></script>
-    <script src="calenderjs.js"></script>
-    <script src="booking.js"></script>
-
-    <script async>
-        const userDataRanges = document.querySelectorAll(".user__data--content input")
-        const bookingUseresInfoBox = document.querySelector(".booking__users .booking__info")
-        const userData = {
-            adultes: 0,
-            kids: 0,
-            bed: false
-        }
-        userDataRanges.forEach((item, index) => {
-            item.addEventListener("input", () => {
-                index === 0 && ( userData.adultes = item.value )
-                index === 1 && ( userData.kids = item.value )
-                if(index === 2 && item.checked){
-                    userData.bed = true
-                }else{
-                    userData.bed = false
-                }
-
-                const bedInfoTxt = userData.bed ? `| <span>mit Kinderbett</span>` : ""
-
-                bookingUseresInfoBox.innerHTML = `<span>Erwachsene: ${userData.adultes}</span> | <span>Kinder: ${userData.kids}</span> ${bedInfoTxt}`
-            })
-        })
-    </script>
-
+    <script src="handleBooking.js"></script>
 </body>
 </html>

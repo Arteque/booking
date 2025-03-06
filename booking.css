@@ -138,6 +138,10 @@ ul[class] {
   z-index: -100;
 }
 
+.booking__data--choosing-data {
+  color: orangered;
+}
+
 .user__data--content input:not(input[type=checkbox]) {
   display: block;
 }
@@ -150,6 +154,9 @@ ul[class] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-block: 1rem;
+  -webkit-border-after: 1px solid #ffffff;
+          border-block-end: 1px solid #ffffff;
 }
 
 .fc-daygrid-day-events {
