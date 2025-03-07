@@ -2,6 +2,16 @@ function checkItemExists (item) {
     if(!item) return
 }
 
+const globalBookingData = {
+    wohnung:null,
+    anreise:null,
+    abreise:null,
+    erwachsene:null,
+    kinder:null,
+    baby:null,
+    kinderbett:null
+}
+
 let allEvents = []; // Store only one booking event
 
 const bookedDays = [
@@ -17,6 +27,7 @@ const bookedDays = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+    
     // Booking Calendar
     let calendarAn = document.querySelector("#calender-an");
     if (!calendarAn) return;
@@ -60,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const calClickDate = (info) => {
         // Add selected date to the booking dates
         bookinginOutDate.push(info.dateStr);
+
         step++;
 
         if (step > 2) bookinginOutDate.shift(); // Keep only last two selections
@@ -136,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // Also push bookedDays again to allEvents to ensure booked dates remain
             bookedDays.forEach(item => allEvents.push(item));
 
-            console.log(allEvents);  // Log the array to check
 
             calendar.getEvents().forEach(event => event.remove()); // Remove all events from the calendar
             allEvents.forEach(event => calendar.addEvent(event));  // Add all events (booked + new booking) to FullCalendar
@@ -145,14 +156,29 @@ document.addEventListener("DOMContentLoaded", () => {
             step = 0;  // Reset step count
 
             // ✅ Display formatted dates
-            bookingInfoStart.innerHTML = `Anreise: <span class="booking__data--choosing-data">${formatDate(newEvent.start)}</span>`;
-            bookingInfoEnd.innerHTML = `Abreise: <span class="booking__data--choosing-data">${formatDate(newEvent.end)}</span>`;
+            bookingInfoStart.innerHTML = `| Anreise: <br /> <span class="booking__data--choosing-data">${formatDate(newEvent.start)}</span> <br>`;
+            bookingInfoEnd.innerHTML = `Abreise: <br /> <span class="booking__data--choosing-data">${formatDate(newEvent.end)}</span>`;
             bookingInfoStart.parentElement.classList.remove("hide");
             bookingCalenderPopup.classList.add("hide");
+
+            //Global Booking Objct
+            if(newEvent.start){
+                globalBookingData.anreise = formatDate(newEvent.start)
+            }else{
+                globalBookingData.anreise = null
+            }
+            if(newEvent.end){
+                globalBookingData.abreise = formatDate(newEvent.end)
+            }else{
+                globalBookingData.abreise = null
+            }
+
+            console.log(globalBookingData)
         }
     };
 
 function showClickedDatainTheInfoBox(){
+
     checkItemExists(document.querySelectorAll(".booking__item"))
 
     
@@ -164,10 +190,13 @@ function showClickedDatainTheInfoBox(){
         const bookingEntryInfo = item.parentElement.parentElement.parentElement.querySelector(".booking__content .booking__info")
         
         item.addEventListener("click", (e) => {
-            
-            if(item.querySelector(".text")) bookingEntryInfo.innerText = item.querySelector(".text").innerText
+            console.log(item)
+            const textData = item.querySelector(".text").innerText
+            if(item.querySelector(".text")) bookingEntryInfo.innerText = textData
+            globalBookingData.wohnung =   textData
             bookingEntryInfo.classList.remove("hide")
             item.parentElement.parentElement.classList.remove("hide")
+            item.parentElement.parentElement.classList.add("hide")
         })
 
     })
@@ -176,33 +205,92 @@ function showClickedDatainTheInfoBox(){
 
 showClickedDatainTheInfoBox()
 
-
+const userData = {
+    adultes: 0,
+    kids: 0,
+    baby:0,
+    bed: false
+}
 //Clients Data
 function addClients(){
 
     const userDataRanges = document.querySelectorAll(".user__data--content input")
     const bookingUseresInfoBox = document.querySelector(".booking__users .booking__info")
-    const userData = {
-        adultes: 0,
-        kids: 0,
-        bed: false
-    }
+    
     userDataRanges.forEach((item, index) => {
         item.addEventListener("input", () => {
             index === 0 && ( userData.adultes = item.value )
             index === 1 && ( userData.kids = item.value )
-            if(index === 2 && item.checked){
-                userData.bed = true
-            }else{
-                userData.bed = false
+            index === 2 && ( userData.baby = item.value )
+
+            if(index === 3){
+                if(!item.checked){
+                    userData.bed = false
+                }else{
+                    userData.bed = true
+                }
             }
 
-            const bedInfoTxt = userData.bed ? `| <span class="booking__data--choosing-data">mit Kinderbett</span>` : ""
+            console.log(userData.bed)
 
-            bookingUseresInfoBox.innerHTML = `Erwachsene:<span class="booking__data--choosing-data"> ${userData.adultes}</span> | Kinder: <span class="booking__data--choosing-data">${userData.kids}</span> ${bedInfoTxt}`
+            const bedInfoTxt = userData.bed ? `| <span class="booking__data--choosing-data">mit Kinderbett</span>` : ''
+
+            bookingUseresInfoBox.innerHTML = `
+            | Erwachsene:<span class="booking__data--choosing-data"> ${userData.adultes}</span> <br />
+            | Kinder: <span class="booking__data--choosing-data">${userData.kids}</span> <br />
+            | Baby: <span class="booking__data--choosing-data">${userData.baby}</span> <br />
+             ${bedInfoTxt}`
+           
+            if(userData.adultes){
+                globalBookingData.erwachsene = userData.adultes
+            }else{
+                globalBookingData.erwachsene = null
+            }
+
+            if(userData.kids){
+                globalBookingData.kinder = userData.kids
+            }else{
+                globalBookingData.kinder = null
+            }
+            if(userData.baby){
+                globalBookingData.baby = userData.baby
+            }else{
+                globalBookingData.baby = null
+            }
+
+            if(userData.bed){
+                globalBookingData.kinderbett =  userData.bed
+            }else{
+                globalBookingData.kinderbett = null
+            }
         })
     })
 }
 
 addClients()
+
+
+//send the data
+
+function sendDataToForm (){
+    
+    //Check if the button is rendered
+    checkItemExists(document.querySelector(".booking__send"))
+
+
+    //send the data
+   const bookingBtn = document.querySelector(".booking__send")
+
+   bookingBtn.addEventListener("click", (e) =>{
+    e.preventDefault()
+    console.log(globalBookingData)
+   })
+
+   
+
+
+}
+
+
+sendDataToForm()
 });

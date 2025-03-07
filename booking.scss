@@ -46,6 +46,23 @@ ul[class]{
     list-style:none;
 }
 
+.booking__header {
+    text-align: center;
+    margin-block: 1rem 2rem;
+    h2{
+        color:var(--prime-100);
+        font-family: var(--serif);
+    }
+    p{
+        margin-block-start: 1rem;
+        max-width: 400px;
+        margin-inline: auto;
+        font-family: var(--flies);
+    }
+}
+
+
+
 .booking__main{
     font-family: var(--serif);
     font-weight: 900;
@@ -61,7 +78,7 @@ ul[class]{
         gap: 1rem;
         width: 90%;
         margin: 1rem auto;
-        align-items:center;
+        align-items:flex-start;
         box-shadow:1px 1px 20px #00000010;
         padding: .5rem;
         cursor:pointer;
@@ -136,7 +153,29 @@ ul[class]{
     padding-block: 1rem;
     border-block-end: 1px solid #ffffff;
 }
+span.range__val {
+    margin-inline-start: auto;
+    color: var(--prime-100);
+}
+.booking__send{
+    button{
+        border: unset;
+        background-color: unset;
+        display: block;
+        margin-inline: auto;
+        background: var(--prime-100);
+        padding: 0.5rem 1rem;
+        font-family: var(--serif);
+        font-weight: 900;
+        font-size: 1.25rem;
+        color: var(--light-100);
+        // text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+    }
+}
 
+//Calendar
  .fc-daygrid-day-events {
      display: none;
 }
@@ -146,4 +185,33 @@ ul[class]{
 }
 .fc-toolbar-chunk .fc-toolbar-title {
     font-size: 1rem;
+}
+
+@media ( min-width:1000px ){
+    .booking__main{
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 1rem;
+        .booking__toggle-menu{
+            margin-block: 0;
+        }
+        .booking__item{
+            max-width: 100%;
+            width: fit-content;
+            min-width: 200px;
+            margin-inline: unset;
+        }
+        .booking__submenu{
+            left: auto;
+            right: auto;
+            & > button{
+                display: none;
+                clear: both;
+            }
+            .booking__submenu--content{
+                min-width: 300px;
+            }
+        }
+    }
 }

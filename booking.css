@@ -49,6 +49,22 @@ ul[class] {
   list-style: none;
 }
 
+.booking__header {
+  text-align: center;
+  margin-block: 1rem 2rem;
+}
+.booking__header h2 {
+  color: var(--prime-100);
+  font-family: var(--serif);
+}
+.booking__header p {
+  -webkit-margin-before: 1rem;
+          margin-block-start: 1rem;
+  max-width: 400px;
+  margin-inline: auto;
+  font-family: var(--flies);
+}
+
 .booking__main {
   font-family: var(--serif);
   font-weight: 900;
@@ -67,9 +83,9 @@ ul[class] {
   gap: 1rem;
   width: 90%;
   margin: 1rem auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.062745098);
           box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.062745098);
   padding: 0.5rem;
@@ -159,6 +175,27 @@ ul[class] {
           border-block-end: 1px solid #ffffff;
 }
 
+span.range__val {
+  -webkit-margin-start: auto;
+          margin-inline-start: auto;
+  color: var(--prime-100);
+}
+
+.booking__send button {
+  border: unset;
+  background-color: unset;
+  display: block;
+  margin-inline: auto;
+  background: var(--prime-100);
+  padding: 0.5rem 1rem;
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--light-100);
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
 .fc-daygrid-day-events {
   display: none;
 }
@@ -170,4 +207,41 @@ ul[class] {
 
 .fc-toolbar-chunk .fc-toolbar-title {
   font-size: 1rem;
+}
+
+@media (min-width: 1000px) {
+  .booking__main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    gap: 1rem;
+  }
+  .booking__main .booking__toggle-menu {
+    margin-block: 0;
+  }
+  .booking__main .booking__item {
+    max-width: 100%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    min-width: 200px;
+    margin-inline: unset;
+  }
+  .booking__main .booking__submenu {
+    left: auto;
+    right: auto;
+  }
+  .booking__main .booking__submenu > button {
+    display: none;
+    clear: both;
+  }
+  .booking__main .booking__submenu .booking__submenu--content {
+    min-width: 300px;
+  }
 }/*# sourceMappingURL=booking.css.map */
